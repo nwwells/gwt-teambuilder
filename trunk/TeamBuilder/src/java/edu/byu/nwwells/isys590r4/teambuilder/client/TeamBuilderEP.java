@@ -27,9 +27,15 @@ import com.allen_sauer.gwt.dnd.client.drop.FlowPanelDropController;
 import com.allen_sauer.gwt.dnd.client.util.DOMUtil;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.WindowResizeListener;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.CellPanel;
+import com.google.gwt.user.client.ui.CheckBox;
+import com.google.gwt.user.client.ui.DockPanel;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.KeyboardListener;
 import com.google.gwt.user.client.ui.KeyboardListenerAdapter;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -44,8 +50,17 @@ public class TeamBuilderEP implements EntryPoint {
   FlowPanelDropController pnlMemberListDC = new FlowPanelDropController(pnlMemberList);
   AbsolutePanel pnlGroup = new AbsolutePanel();
   Label lblGroup = new Label();
+  DockPanel pnlGroupControl = new DockPanel();
+  Button btnAddGroup = new Button("Add Group");
+  Button btnRemoveEmpty = new Button("Remove Empty");
+  Button btnAssignMembers = new Button("Assign All");
+  CheckBox chkBalancedAssign = new CheckBox("Balanced Assign");
+  Label lblGroupControl = new Label();
+  AbsolutePanel pnlGroupArea = new AbsolutePanel();
 
-  PickupDragController dragController = new PickupDragController(boundaryPanel, false);
+  PickupDragController memberDragController = new PickupDragController(boundaryPanel, false);
+  PickupDragController groupDragController = new PickupDragController(pnlGroupArea, false);
+
 
   public void onModuleLoad() {
     // set uncaught exception handler
@@ -85,6 +100,7 @@ public class TeamBuilderEP implements EntryPoint {
     Window.addWindowResizeListener(new WindowResizeListener() {
       public void onWindowResized(int width, int height) {
         boundaryPanel.setPixelSize(width-20, height-20);
+        pnlGroup.setPixelSize(boundaryPanel.getOffsetWidth()-MEMBER_PANEL_WIDTH, boundaryPanel.getOffsetHeight());
       }});
 
     // Create a boundary panel to constrain all drag operations
@@ -118,17 +134,31 @@ public class TeamBuilderEP implements EntryPoint {
           Label newMember = new Label();
           newMember.setText(txtMember.getText());
           pnlMemberList.add(newMember);
-          dragController.makeDraggable(newMember, newMember);
+          memberDragController.makeDraggable(newMember, newMember);
           txtMember.setText("");
         }
       }
     });
     pnlMemberList.add(txtMember);
-    dragController.registerDropController(pnlMemberListDC);
+    memberDragController.registerDropController(pnlMemberListDC);
   }
 
   private void initGroup() {
+    pnlGroup.addStyleName("pnlParent");
+    pnlGroup.setPixelSize(boundaryPanel.getOffsetWidth()-MEMBER_PANEL_WIDTH, boundaryPanel.getOffsetHeight());
+    pnlGroup.add(lblGroup);
     lblGroup.setText("Teams");
+
+    pnlGroup.add(pnlGroupControl);
+    pnlGroupControl.addStyleName("pnlGroupControl");
+    pnlGroupControl.add(btnAddGroup, DockPanel.WEST);
+    pnlGroupControl.add(btnRemoveEmpty, DockPanel.WEST);
+    pnlGroupControl.add(chkBalancedAssign, DockPanel.EAST);
+    pnlGroupControl.add(btnAssignMembers, DockPanel.EAST);
+    pnlGroupControl.add(lblGroupControl, DockPanel.CENTER);
+    lblGroupControl.setText("Controls");
+    
+    boundaryPanel.add(pnlGroup,MEMBER_PANEL_WIDTH, 0);
   }
 
 }//EntryPoint
