@@ -1,0 +1,87 @@
+/* 
+    Document   : teambuilder
+    Created on : Feb 21, 2009, 3:58:15 PM
+    Author     : Nathan Wells
+*/
+
+/* CSS Reset v1.0 | 20080212 (*/
+
+root, html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+	background: transparent;
+}body {
+	line-height: 1;
+	color: black;
+	background: white;
+}:focus {
+	outline: 0;
+}ins {
+	text-decoration: none;
+}del {
+	text-decoration: line-through;
+}table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}ol, ul {
+	list-style: none;
+}caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}blockquote, q {
+	quotes: "" "";
+}
+
+/*TODO: */
+/* remember to define focus styles! */
+/* remember to highlight inserts somehow! */
+
+.app-wrapper {
+  margin: 10px 0px 0px 10px;
+  border: 1px solid blue;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pnlParent {
+  text-align: center;
+  overflow: hidden;
+  height: 100%;
+  padding-top: 5px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.pnlMemberList{
+  background-color: #E1E8FF;
+  height: 100%;
+  margin-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: small;
+  text-align: left;
+}
+
+.txtMember {
+  margin: 5px 0px 5px 0px;
+}
