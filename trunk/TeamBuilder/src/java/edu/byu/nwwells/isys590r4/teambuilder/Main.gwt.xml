@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<inherits name="com.google.gwt.user.User"/>
+  <inherits name='com.allen_sauer.gwt.dnd.gwt-dnd'/>
+	<entry-point class="edu.byu.nwwells.isys590r4.teambuilder.client.TeamBuilderEP"/>
+</module>
