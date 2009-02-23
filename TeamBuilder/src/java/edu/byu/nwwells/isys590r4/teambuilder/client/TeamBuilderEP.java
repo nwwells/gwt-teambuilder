@@ -148,7 +148,7 @@ public class TeamBuilderEP implements EntryPoint {
     btnRemoveEmpty.addClickListener(new ClickListener() {
       public void onClick(Widget sender) {
         pnlGroupArea.getWidgetCount();
-        for (int i = 0; i < pnlGroupArea.getWidgetCount(); i++){
+        for (int i = pnlGroupArea.getWidgetCount()-1; i >= 0; i--){
           if (pnlGroupArea.getWidget(i) instanceof GroupPanel &&
              ((GroupPanel)pnlGroupArea.getWidget(i)).isEmpty())
                 pnlGroupArea.getWidget(i).setVisible(false);
