@@ -40,7 +40,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }ol, ul {
 	list-style: none;
 }caption, th, td {
-	text-align: left;
+	text-align: center;
 	font-weight: normal;
 }blockquote:before, blockquote:after,
 q:before, q:after {
@@ -80,16 +80,49 @@ q:before, q:after {
   font-weight: normal;
   font-size: small;
   text-align: left;
+  line-height: 140%;
 }
 
 .txtMember {
-  margin: 5px 0px 5px 0px;
+  margin: 10px 0px 5px 0px;
 }
 
 .pnlGroupControl {
+  text-align:center;
   width:100%;
-  height:50px;
   margin: 5px 5px 5px 5px;
   background-color: #E1E8FF;
+}
 
+.ctrlGroup {
+  margin: 5px 5px 5px 5px;
+  font-size: small;
+}
+
+.pnlGroupArea {
+  background-color: #deaa7e;
+}
+
+.group-panel {
+  background-color: #E1E8FF;
+}
+
+.group-panel-members {
+  background-color: white;
+  font-size: small;
+  font-weight: normal;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  line-height: 140%;
+}
+
+.group-panel-delete {
+  
+}
+
+popup-panel {
+  z-index: 10;
 }
